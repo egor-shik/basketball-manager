@@ -1,6 +1,6 @@
-package player 
+package player
 
 type Contract struct {
-Salary int 
-YearsLeft int 
+	Salary    int
+	YearsLeft int
 }
