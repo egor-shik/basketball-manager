@@ -1,36 +1,32 @@
-package repository 
+package repository
+
+import (
+ "github.com/egor-shik/basketball-manager/internal/domain/event"
+ "github.com/egor-shik/basketball-manager/internal/domain/news"
+ "github.com/egor-shik/basketball-manager/internal/domain/player"
+ "github.com/egor-shik/basketball-manager/internal/domain/team"
+)
 
 type PlayerRepository interface {
-    Save(*player.Player) error
-    FindByID(id int) (*player.Player, error)
-    FindAll() ([]*player.Player, error)
-    Update(*player.Player) error
+ Save(p *player.Player) error
+ FindByID(id int) (*player.Player, error)
+ FindAll() ([]*player.Player, error)
+ Update(p *player.Player) error
 }
 
 type TeamRepository interface {
-    Save(*player.Player) error
-    FindByID(id int) (*player.Player, error)
-    FindAll() ([]*player.Player, error)
-    Update(*player.Player) error
-}
-
-type SeasonRepository interface {
-    Save(*player.Player) error
-    FindByID(id int) (*player.Player, error)
-    FindAll() ([]*player.Player, error)
-    Update(*player.Player) error
+ Save(t *team.Team) error
+ FindByID(id int) (*team.Team, error)
+ FindAll() ([]*team.Team, error)
+ Update(t *team.Team) error
 }
 
 type EventRepository interface {
-    Save(*player.Player) error
-    FindByID(id int) (*player.Player, error)
-    FindAll() ([]*player.Player, error)
-    Update(*player.Player) error
+ Save(e *event.Event) error
+ FindAll() ([]event.Event, error)
 }
 
 type NewsRepository interface {
-    Save(*player.Player) error
-    FindByID(id int) (*player.Player, error)
-    FindAll() ([]*player.Player, error)
-    Update(*player.Player) error
+ Save(n *news.Article) error
+ FindAll() ([]news.Article, error)
 }
