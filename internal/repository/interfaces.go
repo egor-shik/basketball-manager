@@ -12,6 +12,7 @@ type PlayerRepository interface {
  FindByID(id int) (*player.Player, error)
  FindAll() ([]*player.Player, error)
  Update(p *player.Player) error
+ Delete(id int) error
 }
 
 type TeamRepository interface {
@@ -19,6 +20,7 @@ type TeamRepository interface {
  FindByID(id int) (*team.Team, error)
  FindAll() ([]*team.Team, error)
  Update(t *team.Team) error
+ Delete(id int) error
 }
 
 type EventRepository interface {

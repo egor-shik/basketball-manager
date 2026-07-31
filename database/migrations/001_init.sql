@@ -4,28 +4,30 @@ CREATE TABLE IF NOT EXISTS players (
     last_name TEXT NOT NULL,
     age INTEGER NOT NULL,
     position TEXT NOT NULL,
+    skill INTEGER NOT NULL,
     salary INTEGER DEFAULT 0,
-    market_value INTEGER DEFAULT 0
+    market_value INTEGER DEFAULT 0,
+    team_id INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS teams (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL UNIQUE,
-    balance INTEGER DEFAULT 0,
-    salary_cap INTEGER DEFAULT 0,
-    payroll INTEGER DEFAULT 0
+    name TEXT NOT NULL,
+    balance INTEGER NOT NULL,
+    salary_cap INTEGER NOT NULL,
+    payroll INTEGER NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS events (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id TEXT PRIMARY KEY,
     type TEXT NOT NULL,
-    timestamp INTEGER NOT NULL
+    payload TEXT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS news (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT NOT NULL,
     body TEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    related_event_id INTEGER
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
