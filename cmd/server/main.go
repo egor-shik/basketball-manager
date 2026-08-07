@@ -18,7 +18,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("Error connecting to SQLite: %v", err)
 	}
-	defer db.Close() 
+	defer db.Close()
 
 	migrator := sqlite.NewMigrator(db.DB())
 	if err := migrator.RunFromFile("database/migrations/001_init.sql"); err != nil {

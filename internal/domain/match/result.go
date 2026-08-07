@@ -12,7 +12,7 @@ type MatchResult struct {
 	HomeScore   int
 	AwayScore   int
 	Winner      WinnerSide
-	MVPID       int 
+	MVPID       int
 	PlayerStats []PlayerMatchStats
 	Finished    bool
 }
