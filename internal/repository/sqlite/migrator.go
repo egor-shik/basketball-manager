@@ -14,6 +14,7 @@ func NewMigrator(db *sql.DB) *Migrator {
 	return &Migrator{db: db}
 }
 
+// Reads an SQL file from the given path and executes its contents
 func (m *Migrator) RunFromFile(filepath string) error {
 	content, err := os.ReadFile(filepath)
 	if err != nil {

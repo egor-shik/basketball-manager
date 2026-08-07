@@ -116,7 +116,7 @@ func (s *Simulator) generateScore(homeRating, awayRating float64) (int, int) {
 	return finalHome, finalAway
 }
 
-// generatePlayerStats distributes match points, assists, and rebounds among team players 
+// generatePlayerStats distributes match points, assists, and rebounds among team players
 // proportionally based on individual ratings and randomized performance luck
 func (s *Simulator) generatePlayerStats(home *team.Team, homeScore int, away *team.Team, awayScore int) []match.PlayerMatchStats {
 	var allStats []match.PlayerMatchStats

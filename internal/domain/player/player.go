@@ -79,7 +79,7 @@ func (p *Player) SetAllRatings(value float64) {
 	p.Ratings.Rebounding = v
 	p.Ratings.Athleticism = v
 	p.Ratings.BasketballIQ = v
-   }
+}
 
 func clamp(value, min, max float64) float64 {
 	if value < min {
