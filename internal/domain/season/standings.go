@@ -11,6 +11,7 @@ const (
 	PointsLoss = 1
 )
 
+// Represents a single team's performance record within a tournament season
 type Standing struct {
 	Team   *team.Team
 	Wins   int
@@ -25,6 +26,7 @@ type Standings struct {
 	Table []Standing
 }
 
+// Searches and returns the standing entry for a given team, or nil if not found
 func (st *Standings) Find(t *team.Team) *Standing {
 	for i := range st.Table {
 		if st.Table[i].Team == t {
@@ -34,6 +36,7 @@ func (st *Standings) Find(t *team.Team) *Standing {
 	return nil
 }
 
+// Orders the standings table primarily by points descending, then by wins descending
 func (st *Standings) Sort() {
 	sort.Slice(st.Table, func(i, j int) bool {
 		if st.Table[i].Points != st.Table[j].Points {

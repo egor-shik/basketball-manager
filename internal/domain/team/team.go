@@ -27,6 +27,7 @@ func (t *Team) RemovePlayer(playerID int) {
 	}
 }
 
+// Checks if a specific player currently exists in the team's roster
 func (t *Team) HasPlayer(p *player.Player) bool {
 	for _, rosterPlayer := range t.Players {
 		if rosterPlayer.Personal.ID == p.Personal.ID {
@@ -46,14 +47,18 @@ func (b Budget) CurrentBalance() int64 {
 	return b.Balance
 }
 
+// Evaluates if the team has sufficient balance to cover the specified amount
 func (b Budget) CanAfford(amount int64) bool {
 	return b.Balance >= amount
 }
 
+// Increases the active payroll by the given contract salary
 func (b *Budget) AddPayroll(amount int64) {
 	b.Payroll += amount
 }
 
+// Decreases the active payroll by the given contract salary,
+// ensuring the payroll does not drop below zero
 func (b *Budget) RemovePayroll(amount int64) {
 	b.Payroll -= amount
 	if b.Payroll < 0 {
